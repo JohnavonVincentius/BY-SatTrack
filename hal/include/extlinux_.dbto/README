@@ -1,0 +1,29 @@
+### extlinux .DTBO files
+
+This folder contains .dtbo files to enable BeagleY-AI Peripheral modules.
+
+To enable the modules, copy the files to BeagleY-AI's: /boot/firmware/overlays, 
+then add the modules to your extlinux configuration (fdtoverlays <.dtbo> <.dtbo> <.dtbo>)
+  
+
+How to copy:
+1. Use your NFS filesystem, copy the module you want to enable to you NFS, then on your BeagleY-AI, copy it to the overlay folder.
+2. Use scp. Open this (extlinux_.dtbo) folder on your terminal, then run: 
+  
+  scp ./<module>.dtbo beagley@<beagley_IP-Address>:/boot/firmware/overlays
+
+  Example:
+
+  scp ./k3-am67a-beagley-ai-eqep0.dtbo beagley@192.168.7.2:/boot/firmware/overlays
+
+### Contained modules in this folder:
+1. k3-am67a-beagley-ai-eqep0.dtbo
+  Enables AM67A EQEP(Enhanced Quadrature Encoder Pulse) Module. This modules counts the number on encoder pulses on a dedicated pin. Used for high speed & high reliability counting using a rotary encoder.
+
+### Refer:
+TI's AM67A Processors Datasheet : https://www.ti.com/lit/ds/symlink/am67a.pdf
+TI's AM67 Processor Sillicon TRM: https://www.ti.com/lit/zip/SPRUJB3
+
+
+extlinux_.dto
+|- k3-am67a-beagley-ai-eqep0.dtbo
