@@ -68,3 +68,17 @@ EQEP0:
 #define EQEP0_CTR0_CEILING      EQEP0_CTR0_DEV "/ceiling"
 #define EQEP0_CTR0_ENABLE       EQEP0_CTR0_DEV "/enable"
 #define EQEP0_CTR0_COUNT        EQEP0_CTR0_DEV "/count"
+
+
+/* ---------- STEPPER DEVICE CONFIGURATION ----------*/
+/*
+STEPPER0:
+  STEP: GPIO23 / HAT-16
+  DIR : GPIO24 / HAT-18
+  (get chip + line with: gpioinfo | grep -E "gpiochip|GPIO23|GPIO24")
+*/
+#define STEPPER0_STEP_CHIP     "/dev/gpiochip0"
+#define STEPPER0_STEP_LINE     7
+#define STEPPER0_DIR_CHIP      "/dev/gpiochip0"
+#define STEPPER0_DIR_LINE      10
+#define STEPPER0_RT_PRIORITY   80
