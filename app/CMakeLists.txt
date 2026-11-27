@@ -13,3 +13,7 @@ add_custom_command(TARGET light_sampler POST_BUILD
   COMMENT "Copying ARM executable to beagley HOME directory")
 
 
+
+# Step generator test app
+add_executable(stepgen_test test/stepgen_test.c)
+target_link_libraries(stepgen_test LINK_PRIVATE hal)
