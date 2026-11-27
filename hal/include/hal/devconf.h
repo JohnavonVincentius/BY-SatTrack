@@ -70,15 +70,12 @@ EQEP0:
 #define EQEP0_CTR0_COUNT        EQEP0_CTR0_DEV "/count"
 
 
-/* ---------- STEPPER DEVICE CONFIGURATION ----------*/
-/*
-STEPPER0:
-  STEP: GPIO23 / HAT-16
-  DIR : GPIO24 / HAT-18
-  (get chip + line with: gpioinfo | grep -E "gpiochip|GPIO23|GPIO24")
-*/
-#define STEPPER0_STEP_CHIP     "/dev/gpiochip0"
-#define STEPPER0_STEP_LINE     7
-#define STEPPER0_DIR_CHIP      "/dev/gpiochip0"
-#define STEPPER0_DIR_LINE      10
-#define STEPPER0_RT_PRIORITY   80
+/*---- Azimuth quadrature rotary encoder on motor shaft ----*/
+#define AZIMUTH_PPR                 24      // Detents / pulses per motor shaft rev (usually 20 or 24)
+#define AZIMUTH_COUNTS_PER_PULSE    4       // eQEP quadrature x4 mode (4 edges per detent/cycle)
+#define AZIMUTH_GEAR_RATIO          96.0    // 1:96 Wolfrom gearbox
+#define AZIMUTH_DIR                 1       // Set to -1 if CW dish rotation decreases count
+
+#define AZIMUTH_COUNTS_PER_MOTOR_REV (AZIMUTH_PPR * AZIMUTH_COUNTS_PER_PULSE)
+#define AZIMUTH_COUNTS_PER_DISH_REV  ((double)AZIMUTH_COUNTS_PER_MOTOR_REV * AZIMUTH_GEAR_RATIO)
+
